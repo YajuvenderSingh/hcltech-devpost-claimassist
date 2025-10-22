@@ -1,0 +1,11 @@
+53DocumentUpload.tsx:203 Warning: Maximum update depth exceeded. This can happen when a component calls setState inside useEffect, but useEffect either doesn't have a dependency array, or one of the dependencies changes on every render.
+    at DocumentUpload (https://cf2f0da36fbf4288832c5b6073ac798d.vfs.cloud9.us-east-1.amazonaws.com/static/js/bundle.js:101304:3)
+    at PresenceChild (https://cf2f0da36fbf4288832c5b6073ac798d.vfs.cloud9.us-east-1.amazonaws.com/static/js/bundle.js:47246:3)
+    at AnimatePresence (https://cf2f0da36fbf4288832c5b6073ac798d.vfs.cloud9.us-east-1.amazonaws.com/static/js/bundle.js:47382:3)
+    at div
+    at main
+    at div
+    at div
+    at MainLayout (https://cf2f0da36fbf4288832c5b6073ac798d.vfs.cloud9.us-east-1.amazonaws.com/static/js/bundle.js:107341:3)
+    at div
+    at App (https://cf2f0da36fbf4288832c5b6073ac798d.vfs.cloud9.us-east-1.amazonaws.com/static/js/bundle.js:95948:76)

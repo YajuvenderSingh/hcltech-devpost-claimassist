@@ -1,0 +1,18 @@
+{
+  "FunctionName": "nmm_confidence_score_lambda",
+  "FunctionArn": "arn:aws:lambda:us-east-1:040504913362:function:nmm_confidence_score_lambda",
+  "Runtime": "python3.9",
+  "Role": "arn:aws:iam::040504913362:role/HCL-User-Role-Aiml-lambda",
+  "Handler": "lambda_confidence_handler.lambda_handler",
+  "CodeSize": 6183,
+  "Description": "Confidence scoring for extracted entities using AI models - NMM version",
+  "Timeout": 300,
+  "MemorySize": 4096,
+  "LastModified": "2025-09-23T07:34:58.000+0000",
+  "Version": "$LATEST",
+  "PackageType": "Zip",
+  "Architectures": ["x86_64"],
+  "EphemeralStorage": {
+    "Size": 4096
+  }
+}

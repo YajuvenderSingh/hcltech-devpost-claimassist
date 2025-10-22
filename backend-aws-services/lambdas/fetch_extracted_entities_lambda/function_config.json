@@ -1,0 +1,18 @@
+{
+  "FunctionName": "nmm_fetch_extracted_entities_lambda",
+  "FunctionArn": "arn:aws:lambda:us-east-1:040504913362:function:nmm_fetch_extracted_entities_lambda",
+  "Runtime": "python3.9",
+  "Role": "arn:aws:iam::040504913362:role/HCL-User-Role-Aiml-lambda",
+  "Handler": "extraction_lambda_function.lambda_handler",
+  "CodeSize": 639,
+  "Description": "Lambda function to fetch extracted_entities from nmm-doc-extraction DynamoDB table",
+  "Timeout": 3,
+  "MemorySize": 128,
+  "LastModified": "2025-09-07T13:16:53.719+0000",
+  "Version": "$LATEST",
+  "PackageType": "Zip",
+  "Architectures": ["x86_64"],
+  "EphemeralStorage": {
+    "Size": 512
+  }
+}

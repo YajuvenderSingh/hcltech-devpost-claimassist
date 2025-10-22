@@ -1,0 +1,15 @@
+{
+  "QueueName": "NMM_DocProcessingAfterExtractionQueueNew",
+  "QueueUrl": "https://queue.amazonaws.com/040504913362/NMM_DocProcessingAfterExtractionQueueNew",
+  "QueueArn": "arn:aws:sqs:us-east-1:040504913362:NMM_DocProcessingAfterExtractionQueueNew",
+  "Attributes": {
+    "VisibilityTimeout": "300",
+    "MaximumMessageSize": "1048576",
+    "MessageRetentionPeriod": "240",
+    "DelaySeconds": "0",
+    "ReceiveMessageWaitTimeSeconds": "0",
+    "SqsManagedSseEnabled": "true"
+  },
+  "CreatedTimestamp": "1757177706",
+  "LastModifiedTimestamp": "1757177706"
+}

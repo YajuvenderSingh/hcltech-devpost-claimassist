@@ -1,0 +1,25 @@
+{
+    "BucketPolicy": {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Sid": "PublicReadGetObject",
+                "Effect": "Allow",
+                "Principal": "*",
+                "Action": "s3:GetObject",
+                "Resource": "arn:aws:s3:::{{BUCKET_NAME}}/*"
+            }
+        ]
+    },
+    "CORSConfiguration": {
+        "CORSRules": [
+            {
+                "AllowedHeaders": ["*"],
+                "AllowedMethods": ["GET", "POST", "PUT", "DELETE"],
+                "AllowedOrigins": ["*"],
+                "ExposeHeaders": ["ETag", "x-amz-meta-custom-header"],
+                "MaxAgeSeconds": 3000
+            }
+        ]
+    }
+}

@@ -1,0 +1,135 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Resource": "*",
+            "Effect": "Allow",
+            "NotAction": [
+                "iam:*",
+                "organizations:*",
+                "account:*",
+                "route53:*",
+                "ec2:*Vpc*",
+                "directconnect:*",
+                "ec2:*Route*",
+                "ec2:*Subnet*",
+                "ec2:*Vpn*",
+                "ec2:*NetworkAcl*",
+                "networkmanager:*",
+                "ec2:*SecurityGroup*",
+                "ec2:*Gateway*",
+                "network-firewall:*",
+                "route53:List*"
+            ]
+        },
+        {
+            "Action": [
+                "ec2:AllocateAddress",
+                "ec2:AssociateAddress",
+                "route53resolver:*",
+                "elasticloadbalancing:Create*",
+                "elasticloadbalancing:Modify*",
+                "elasticloadbalancing:Delete*",
+                "elasticloadbalancing:Set*",
+                "elasticloadbalancing:RegisterTargets",
+                "elasticloadbalancing:DeregisterTargets",
+                "elasticloadbalancing:CreateTargetGroup",
+                "elasticloadbalancing:ModifyTargetGroup",
+                "elasticloadbalancing:DeleteTargetGroup",
+                "elasticloadbalancing:ModifyTargetGroupAttributes",
+                "cloudfront:*",
+                "waf:*",
+                "wafv2:*",
+                "waf-regional:*",
+                "shield:*",
+                "apigateway:*"
+            ],
+            "Resource": "*",
+            "Effect": "Deny"
+        },
+        {
+            "Action": [
+                "iam:ListRoles",
+                "iam:List*",
+                "iam:GetRole*",
+                "iam:TagPolicy",
+                "iam:UntagPolicy",
+                "iam:GetPolicy*",
+                "iam:PassRole",
+                "iam:TagRole",
+                "iam:UntagRole",
+                "iam:CreateServiceLinkedRole",
+                "iam:DeleteServiceLinkedRole",
+                "iam:GetRole",
+                "organizations:DescribeOrganization",
+                "account:ListRegions",
+                "account:GetAccountInformation",
+                "ec2:*Describe*",
+                "ec2:*List*",
+                "elasticloadbalancing:Describe*",
+                "network-firewall:*Describe*",
+                "network-firewall:*List*",
+                "route53resolver:*",
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:RevokeSecurityGroupEgress"
+            ],
+            "Resource": "*",
+            "Effect": "Allow"
+        },
+        {
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceTag/AmazonBedrockManaged": "true"
+                }
+            },
+            "Action": [
+                "iam:CreateRole",
+                "iam:PutRolePolicy",
+                "iam:AttachRolePolicy",
+                "iam:DeleteRolePolicy",
+                "iam:DetachRolePolicy"
+            ],
+            "Resource": [
+                "arn:aws:iam::*:role/DataZoneBedrockProject*",
+                "arn:aws:iam::*:role/AmazonBedrockExecution*",
+                "arn:aws:iam::*:role/BedrockStudio*"
+            ],
+            "Effect": "Allow",
+            "Sid": "BedrockStudioProvisioningRoleIAMPermission1"
+        },
+        {
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceTag/AmazonBedrockManaged": "true"
+                }
+            },
+            "Action": [
+                "iam:UpdateRole",
+                "iam:DeleteRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::*:role/DataZoneBedrockProject*",
+                "arn:aws:iam::*:role/AmazonBedrockExecution*",
+                "arn:aws:iam::*:role/BedrockStudio*"
+            ],
+            "Effect": "Allow",
+            "Sid": "BedrockStudioProvisioningRoleIAMPermission2"
+        },
+        {
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceTag/AmazonBedrockManaged": "true"
+                }
+            },
+            "Action": [
+                "iam:TagRole",
+                "iam:UntagRole"
+            ],
+            "Resource": "*",
+            "Effect": "Allow",
+            "Sid": "BedrockStudioProvisioningRoleIAMPermission3"
+        }
+    ]
+}

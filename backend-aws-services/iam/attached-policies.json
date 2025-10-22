@@ -1,0 +1,16 @@
+{
+    "AttachedPolicies": [
+        {
+            "PolicyName": "AWSLambdaENIManagementAccess",
+            "PolicyArn": "arn:aws:iam::aws:policy/service-role/AWSLambdaENIManagementAccess"
+        },
+        {
+            "PolicyName": "AmazonDynamoDBFullAccess",
+            "PolicyArn": "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+        },
+        {
+            "PolicyName": "HCL-User-Policy-Aiml-1",
+            "PolicyArn": "arn:aws:iam::040504913362:policy/HCL-User-Policy-Aiml-1"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Lambda Function Calls</title>
+</head>
+<body>
+    <h1>Lambda Function Call Test</h1>
+    <p>Open browser console (F12) and check for these logs:</p>
+    <ul>
+        <li>🔍 validateClaimNumber called with: [claim_number]</li>
+        <li>🚀 Calling nmm_check_claimnumber_in_guidewire_lambda with ClaimNumber: [claim_number]</li>
+        <li>📥 Lambda response received: [response]</li>
+    </ul>
+    
+    <h2>Expected Behavior:</h2>
+    <ul>
+        <li><strong>With Claim Number:</strong> Function calls lambda and shows response</li>
+        <li><strong>Without Claim Number:</strong> Shows "No Claim Number Found" message and grays out Guidewire button</li>
+    </ul>
+    
+    <h2>How to Test:</h2>
+    <ol>
+        <li>Start the React app: <code>npm start</code></li>
+        <li>Upload a document or navigate to ContentExtraction</li>
+        <li>Go to Validation tab</li>
+        <li>Check browser console for the logs above</li>
+        <li>Verify UI shows correct status and button state</li>
+    </ol>
+</body>
+</html>

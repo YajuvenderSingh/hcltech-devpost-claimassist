@@ -1,0 +1,18 @@
+{
+  "FunctionName": "nmm_document_summary_lambda",
+  "FunctionArn": "arn:aws:lambda:us-east-1:040504913362:function:nmm_document_summary_lambda",
+  "Runtime": "python3.9",
+  "Role": "arn:aws:iam::040504913362:role/HCL-User-Role-Aiml-lambda",
+  "Handler": "lambda_function.lambda_handler",
+  "CodeSize": 3538,
+  "Description": "Lambda function for NMM document summary processing",
+  "Timeout": 300,
+  "MemorySize": 1024,
+  "LastModified": "2025-09-24T15:19:38.000+0000",
+  "Version": "$LATEST",
+  "PackageType": "Zip",
+  "Architectures": ["x86_64"],
+  "EphemeralStorage": {
+    "Size": 1024
+  }
+}

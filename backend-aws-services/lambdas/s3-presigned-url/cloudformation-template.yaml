@@ -1,0 +1,170 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'S3 Presigned URL Lambda Function for Claim Assist Application'
+
+Parameters:
+  FunctionName:
+    Type: String
+    Default: 'claimassist-presignedurl-lambda'
+    Description: 'Name for the Lambda function'
+  
+  S3BucketName:
+    Type: String
+    Description: 'S3 bucket name for storing claim documents'
+    Default: 'my-claim-documents-bucket'
+  
+  IAMRoleName:
+    Type: String
+    Default: 'HCL-User-Role-Aiml-lambda'
+    Description: 'IAM role name (must be created separately)'
+
+Resources:
+  # S3 Bucket for claim documents
+  ClaimDocumentsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref S3BucketName
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders: ['*']
+            AllowedMethods: ['GET', 'POST', 'PUT', 'DELETE']
+            AllowedOrigins: ['*']
+            ExposedHeaders: ['ETag', 'x-amz-meta-custom-header']
+            MaxAge: 3000
+
+  # S3 Bucket Policy
+  ClaimDocumentsBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ClaimDocumentsBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: '*'
+            Action: 's3:GetObject'
+            Resource: !Sub '${ClaimDocumentsBucket}/*'
+
+  # Lambda Function
+  PresignedUrlLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Ref FunctionName
+      Runtime: python3.13
+      Handler: presigned-url-lambda.lambda_handler
+      Role: !Sub 'arn:aws:iam::${AWS::AccountId}:role/${IAMRoleName}'
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+          import random
+          import re
+          import os
+
+          s3 = boto3.client('s3')
+          BUCKET_NAME = os.environ.get('BUCKET_NAME', 'default-bucket')
+
+          def lambda_handler(event, context):
+              headers = {
+                  'Access-Control-Allow-Origin': '*',
+                  'Access-Control-Allow-Headers': 'Content-Type',
+                  'Access-Control-Allow-Methods': 'POST,OPTIONS'
+              }
+              
+              if event.get('httpMethod') == 'OPTIONS':
+                  return {'statusCode': 200, 'headers': headers, 'body': ''}
+              
+              try:
+                  body = json.loads(event.get('body', '{}')) if 'body' in event else event
+                  task_type = body.get('tasktype')
+                  
+                  if task_type == 'GET_PRESIGNED_URL_FOR_VIEW':
+                      s3_key = body.get('s3Key')
+                      if not s3_key:
+                          return {'statusCode': 400, 'headers': headers, 'body': json.dumps({'error': 's3Key required'})}
+                          
+                      presigned_url = s3.generate_presigned_url(
+                          ClientMethod='get_object',
+                          Params={'Bucket': BUCKET_NAME, 'Key': s3_key}
+                      )
+                      
+                      return {
+                          'statusCode': 200,
+                          'headers': headers,
+                          'body': json.dumps({
+                              'uploadUrl': presigned_url,
+                              's3Key': s3_key
+                          })
+                      }
+                  else:
+                      file_name = body.get('fileName')
+                      claim_id = body.get('claimId')
+                      file_type = body.get('fileType', 'application/octet-stream')
+                      
+                      if not file_name:
+                          return {'statusCode': 400, 'headers': headers, 'body': json.dumps({'error': 'fileName required'})}
+                      
+                      if claim_id and claim_id.strip():
+                          if not re.match(r'^IN\d{6}$', claim_id):
+                              return {'statusCode': 400, 'headers': headers, 'body': json.dumps({'error': 'Invalid claim ID format'})}
+                      
+                      if not claim_id or not claim_id.strip():
+                          claim_id = "IN" + str(random.randint(100000, 999999))
+                      
+                      doc_id = "DOC" + str(random.randint(100000, 999999))
+                      s3_key = f'newmexicomutual/claimforms/{claim_id}/{doc_id}/{file_name}'
+                      
+                      presigned_url = s3.generate_presigned_url(
+                          'put_object',
+                          Params={'Bucket': BUCKET_NAME, 'Key': s3_key, 'ContentType': file_type},
+                          ExpiresIn=3600
+                      )
+                      
+                      return {
+                          'statusCode': 200,
+                          'headers': headers,
+                          'body': json.dumps({
+                              'uploadUrl': presigned_url,
+                              's3Key': s3_key,
+                              'claimId': claim_id,
+                              'docId': doc_id,
+                              'documentId': claim_id
+                          })
+                      }
+                  
+              except Exception as e:
+                  return {
+                      'statusCode': 500,
+                      'headers': headers,
+                      'body': json.dumps({'error': str(e)})
+                  }
+      Environment:
+        Variables:
+          BUCKET_NAME: !Ref S3BucketName
+      Timeout: 600
+      MemorySize: 2046
+      Description: 'Lambda function for generating S3 presigned URLs for claim documents'
+
+Outputs:
+  LambdaFunctionArn:
+    Description: 'ARN of the Lambda function'
+    Value: !GetAtt PresignedUrlLambda.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-LambdaArn'
+  
+  S3BucketName:
+    Description: 'Name of the S3 bucket'
+    Value: !Ref ClaimDocumentsBucket
+    Export:
+      Name: !Sub '${AWS::StackName}-S3Bucket'
+  
+  S3BucketArn:
+    Description: 'ARN of the S3 bucket'
+    Value: !GetAtt ClaimDocumentsBucket.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-S3BucketArn'

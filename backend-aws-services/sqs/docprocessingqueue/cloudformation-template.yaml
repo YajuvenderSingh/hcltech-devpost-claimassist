@@ -1,0 +1,125 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'NMM Document Processing SQS Queue for Claim Processing Workflow'
+
+Parameters:
+  QueueName:
+    Type: String
+    Default: 'NMMDocProcessingQueue'
+    Description: 'Name for the SQS queue'
+  
+  VisibilityTimeout:
+    Type: Number
+    Default: 300
+    Description: 'Visibility timeout in seconds'
+    MinValue: 0
+    MaxValue: 43200
+  
+  MessageRetentionPeriod:
+    Type: Number
+    Default: 240
+    Description: 'Message retention period in seconds (4 minutes)'
+    MinValue: 60
+    MaxValue: 1209600
+  
+  DelaySeconds:
+    Type: Number
+    Default: 1
+    Description: 'Delay seconds for message delivery'
+    MinValue: 0
+    MaxValue: 900
+
+Resources:
+  # Main Document Processing Queue
+  DocumentProcessingQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Ref QueueName
+      VisibilityTimeoutSeconds: !Ref VisibilityTimeout
+      MessageRetentionPeriod: !Ref MessageRetentionPeriod
+      DelaySeconds: !Ref DelaySeconds
+      MaxReceiveCount: 3
+      ReceiveMessageWaitTimeSeconds: 0
+      SqsManagedSseEnabled: true
+      Tags:
+        - Key: Purpose
+          Value: DocumentProcessing
+        - Key: System
+          Value: ClaimAssist
+        - Key: Component
+          Value: NMM
+
+  # Dead Letter Queue (Optional but recommended)
+  DocumentProcessingDLQ:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Sub '${QueueName}-DLQ'
+      MessageRetentionPeriod: 1209600  # 14 days
+      SqsManagedSseEnabled: true
+      Tags:
+        - Key: Purpose
+          Value: DeadLetterQueue
+        - Key: System
+          Value: ClaimAssist
+
+  # Queue Policy
+  DocumentProcessingQueuePolicy:
+    Type: AWS::SQS::QueuePolicy
+    Properties:
+      Queues:
+        - !Ref DocumentProcessingQueue
+      PolicyDocument:
+        Version: '2012-10-17'
+        Id: !Sub '${QueueName}-Policy'
+        Statement:
+          - Sid: AllowAccountAccess
+            Effect: Allow
+            Principal:
+              AWS: !Sub 'arn:aws:iam::${AWS::AccountId}:root'
+            Action: 'SQS:*'
+            Resource: !GetAtt DocumentProcessingQueue.Arn
+          - Sid: AllowSendMessage
+            Effect: Allow
+            Principal:
+              AWS: !Sub 'arn:aws:iam::${AWS::AccountId}:root'
+            Action: 'SQS:SendMessage'
+            Resource: !GetAtt DocumentProcessingQueue.Arn
+          - Sid: AllowReceiveMessage
+            Effect: Allow
+            Principal:
+              AWS: !Sub 'arn:aws:iam::${AWS::AccountId}:root'
+            Action:
+              - 'SQS:ReceiveMessage'
+              - 'SQS:DeleteMessage'
+              - 'SQS:ChangeMessageVisibility'
+            Resource: !GetAtt DocumentProcessingQueue.Arn
+
+Outputs:
+  QueueUrl:
+    Description: 'URL of the SQS queue'
+    Value: !Ref DocumentProcessingQueue
+    Export:
+      Name: !Sub '${AWS::StackName}-QueueUrl'
+  
+  QueueArn:
+    Description: 'ARN of the SQS queue'
+    Value: !GetAtt DocumentProcessingQueue.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-QueueArn'
+  
+  QueueName:
+    Description: 'Name of the SQS queue'
+    Value: !GetAtt DocumentProcessingQueue.QueueName
+    Export:
+      Name: !Sub '${AWS::StackName}-QueueName'
+  
+  DLQUrl:
+    Description: 'URL of the Dead Letter Queue'
+    Value: !Ref DocumentProcessingDLQ
+    Export:
+      Name: !Sub '${AWS::StackName}-DLQUrl'
+  
+  DLQArn:
+    Description: 'ARN of the Dead Letter Queue'
+    Value: !GetAtt DocumentProcessingDLQ.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-DLQArn'

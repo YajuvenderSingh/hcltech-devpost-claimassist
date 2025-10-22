@@ -1,0 +1,139 @@
+Amplify configured with hardcoded values: {userPoolId: 'us-east-1_BkFQfgXOk', userPoolClientId: '1mq0rnmgmb8edt0v1npgm5rf60', identityPoolId: 'us-east-1:896efff8-cd15-4b26-a376-189b81e902f8', region: 'us-east-1'}
+App.tsx:97 🔍 Restored real auth user: {id: 'user_1757521888489', email: 'faizankhan-sadek@hcltech.com', role: 'Adjuster', verified: true, token: 'token_1759312809128_grhjfa5qq'}
+App.tsx:109 🎯 Routing restored user to: dashboard for role: Adjuster
+App.tsx:97 🔍 Restored real auth user: {id: 'user_1757521888489', email: 'faizankhan-sadek@hcltech.com', role: 'Adjuster', verified: true, token: 'token_1759312809128_grhjfa5qq'}
+App.tsx:109 🎯 Routing restored user to: dashboard for role: Adjuster
+Dashboard.tsx:34 payload {}
+Dashboard.tsx:34 payload {}
+Dashboard.tsx:37 response {statusCode: 200, body: '[{"doc_id": "DOC858227", "indexid": "IN380640", "c…t_name": "DAVID", "employee_last_name": "BONET"}]'}
+Dashboard.tsx:46 Parsed dashboard data: (3) [{…}, {…}, {…}]
+Dashboard.tsx:37 response {statusCode: 200, body: '[{"doc_id": "DOC858227", "indexid": "IN380640", "c…t_name": "DAVID", "employee_last_name": "BONET"}]'}
+Dashboard.tsx:46 Parsed dashboard data: (3) [{…}, {…}, {…}]
+Dashboard.tsx:107 🔍 Full docData: {doc_id: 'DOC136118', indexid: 'IN380640', classification: 'Legal', employee_first_name: 'DAVID', employee_last_name: 'BONET'}
+Dashboard.tsx:108 🔍 All docData keys: (5) ['doc_id', 'indexid', 'classification', 'employee_first_name', 'employee_last_name']
+Dashboard.tsx:125 🔍 GW Claim ID found: undefined
+Dashboard.tsx:166 ⚠️ No valid GW Claim ID to update
+MatchingClaims.tsx:84 Mapping payload: {docid: 'DOC136118', gw_claim_number: '312-36-368889'}
+MatchingClaims.tsx:87 Mapping response: {statusCode: 200, body: '"Successfully update nmm-dashboard with guidewire claim number!"'}
+MatchingClaims.tsx:97 🔍 Claims data classification: undefined
+MatchingClaims.tsx:98 🔍 Is legal document: undefined
+MatchingClaims.tsx:99 🔍 Using section: claim_details_section
+ContentExtraction.tsx:2229 🔍 Entity loading state - isLoadingEntities: false
+ContentExtraction.tsx:2230 🔍 Entity sections - entitiesBySection: {}
+ContentExtraction.tsx:2231 🔍 Entity sections count: 0
+ContentExtraction.tsx:2336 ❌ No entities condition - entitiesBySection: {}
+ContentExtraction.tsx:2337 ❌ isLoadingEntities: false
+ContentExtraction.tsx:2229 🔍 Entity loading state - isLoadingEntities: false
+ContentExtraction.tsx:2230 🔍 Entity sections - entitiesBySection: {}
+ContentExtraction.tsx:2231 🔍 Entity sections count: 0
+ContentExtraction.tsx:2336 ❌ No entities condition - entitiesBySection: {}
+ContentExtraction.tsx:2337 ❌ isLoadingEntities: false
+AdjusterPreview.tsx:27 ❌ No S3 key found in selectedFile, calling dashboard lambda
+AdjusterPreview.tsx:31 ❌ No docId found in selectedFile
+ContentExtraction.tsx:73 🔍 Loading data for selectedDocId without files: DOC136118
+ContentExtraction.tsx:320 🎠 entitiesBySection changed: {}
+ContentExtraction.tsx:321 🎠 Section count: 0
+ContentExtraction.tsx:322 🎠 Section names: []
+ContentExtraction.tsx:473 🔍 ADJUSTER ROLE USEEFFECT - propSelectedDocId: DOC136118
+ContentExtraction.tsx:474 🔍 ADJUSTER ROLE USEEFFECT - userRole: Adjuster
+ContentExtraction.tsx:477 🔄 ADJUSTER ROLE - Calling nmm_dashboard_lambda for: DOC136118
+ContentExtraction.tsx:481 📤 ADJUSTER ROLE - Dashboard payload: {docid: 'DOC136118'}
+ContentExtraction.tsx:1709 ⏹️ Polling stopped
+AdjusterPreview.tsx:27 ❌ No S3 key found in selectedFile, calling dashboard lambda
+AdjusterPreview.tsx:31 ❌ No docId found in selectedFile
+ContentExtraction.tsx:73 🔍 Loading data for selectedDocId without files: DOC136118
+ContentExtraction.tsx:320 🎠 entitiesBySection changed: {}
+ContentExtraction.tsx:321 🎠 Section count: 0
+ContentExtraction.tsx:322 🎠 Section names: []
+ContentExtraction.tsx:473 🔍 ADJUSTER ROLE USEEFFECT - propSelectedDocId: DOC136118
+ContentExtraction.tsx:474 🔍 ADJUSTER ROLE USEEFFECT - userRole: Adjuster
+ContentExtraction.tsx:477 🔄 ADJUSTER ROLE - Calling nmm_dashboard_lambda for: DOC136118
+ContentExtraction.tsx:481 📤 ADJUSTER ROLE - Dashboard payload: {docid: 'DOC136118'}
+ContentExtraction.tsx:1709 ⏹️ Polling stopped
+ContentExtraction.tsx:1703 🔄 Starting polling interval (every 5 seconds)
+ContentExtraction.tsx:103 🔍 Dashboard data set for docId: DOC136118 Data: {s3filename: Array(1), classification: 'Legal', classification_status: 'Completed', extraction_status: 'Completed', entity_extraction_status: 'Completed', …}
+ContentExtraction.tsx:104 🔍 Available fields: (12) ['s3filename', 'classification', 'classification_status', 'extraction_status', 'entity_extraction_status', 'doc_source', 'document_conf_score', 'gw_claim_id', 'indexid', 'docid', 'confidence_score_status', 'doc_language']
+ContentExtraction.tsx:108 🔍 Found mapped GW Claim ID, validating: 312-36-368889
+ContentExtraction.tsx:346 🔍 validateClaimNumber called with: 312-36-368889
+ContentExtraction.tsx:355 🚀 Calling nmm_check_claimnumber_in_guidewire_lambda with ClaimNumber: 312-36-368889
+ContentExtraction.tsx:139 🔄 Cleared entities cache to get updated values
+ContentExtraction.tsx:295 🔗 Setting selectedFile from dashboard data for docId: DOC136118
+ContentExtraction.tsx:310 🚀 Pre-loading summary and validation for docId: DOC136118
+ContentExtraction.tsx:483 📥 ADJUSTER ROLE - Dashboard response: {statusCode: 200, body: '{"s3filename": ["newmexicomutual/claimforms/IN3806…_status": "Completed", "doc_language": "English"}'}
+ContentExtraction.tsx:491 🔍 TESTING - Classification check: Legal
+ContentExtraction.tsx:494 🔍 TESTING - Legal detected, calling handler
+ContentExtraction.tsx:381 ⚖️ Legal classification detected - calling nmm_update_guidewire_legal_lambda
+ContentExtraction.tsx:410 📤 Legal lambda payload (with UI values): {ClaimNumber: '312-36-368889', case_number: '533489', name: 'DAVID BONET', category: 'Legal', matter_type: 'Hearing', …}
+ContentExtraction.tsx:103 🔍 Dashboard data set for docId: DOC136118 Data: {classification: 'Legal', classification_status: 'Completed', confidence_score_status: 'Completed', doc_language: 'English', doc_source: 'ManualUpload', …}
+ContentExtraction.tsx:104 🔍 Available fields: (12) ['classification', 'classification_status', 'confidence_score_status', 'doc_language', 'doc_source', 'docid', 'document_conf_score', 'entity_extraction_status', 'extraction_status', 'gw_claim_id', 'indexid', 's3filename']
+ContentExtraction.tsx:108 🔍 Found mapped GW Claim ID, validating: 312-36-368889
+ContentExtraction.tsx:346 🔍 validateClaimNumber called with: 312-36-368889
+ContentExtraction.tsx:355 🚀 Calling nmm_check_claimnumber_in_guidewire_lambda with ClaimNumber: 312-36-368889
+ContentExtraction.tsx:139 🔄 Cleared entities cache to get updated values
+ContentExtraction.tsx:266 ❌ No entities data received
+ContentExtraction.tsx:1713 🛑 Clearing polling interval
+ContentExtraction.tsx:310 🚀 Pre-loading summary and validation for docId: DOC136118
+ContentExtraction.tsx:320 🎠 entitiesBySection changed: {}
+ContentExtraction.tsx:321 🎠 Section count: 0
+ContentExtraction.tsx:322 🎠 Section names: []
+ContentExtraction.tsx:1709 ⏹️ Polling stopped
+ContentExtraction.tsx:483 📥 ADJUSTER ROLE - Dashboard response: {statusCode: 200, body: '{"classification": "Legal", "classification_status…ms/IN380640/DOC136118/LegalCaseDocument-WC.pdf"]}'}
+ContentExtraction.tsx:491 🔍 TESTING - Classification check: Legal
+ContentExtraction.tsx:494 🔍 TESTING - Legal detected, calling handler
+ContentExtraction.tsx:381 ⚖️ Legal classification detected - calling nmm_update_guidewire_legal_lambda
+ContentExtraction.tsx:410 📤 Legal lambda payload (with UI values): {ClaimNumber: '312-36-368889', case_number: '533489', name: 'DAVID BONET', category: 'Legal', matter_type: 'Hearing', …}
+ContentExtraction.tsx:1169 📋 handleGenerateSummaryForDoc called with docId: DOC136118
+ContentExtraction.tsx:1130 📋 handleGenerateValidationForDoc called with docId: DOC136118
+ContentExtraction.tsx:1140 🔍 Generating validation for docId: DOC136118
+ContentExtraction.tsx:1146 📤 Validation payload: {
+  "docid": "DOC136118"
+}
+ContentExtraction.tsx:1147 🎯 Using lambda function: nmm_doc_validation_lambda
+ContentExtraction.tsx:1169 📋 handleGenerateSummaryForDoc called with docId: DOC136118
+ContentExtraction.tsx:1130 📋 handleGenerateValidationForDoc called with docId: DOC136118
+ContentExtraction.tsx:1140 🔍 Generating validation for docId: DOC136118
+ContentExtraction.tsx:1146 📤 Validation payload: {
+  "docid": "DOC136118"
+}
+ContentExtraction.tsx:1147 🎯 Using lambda function: nmm_doc_validation_lambda
+2ContentExtraction.tsx:412 ✅ Legal lambda success
+ContentExtraction.tsx:146 🎯 Loaded entities from dataStore for docId: DOC136118 {legal_section: {…}, claim_details_section: {…}, legal: {…}}
+ContentExtraction.tsx:154 🔍 DEBUG: All sections in entitiesData: (3) ['legal_section', 'claim_details_section', 'legal']
+ContentExtraction.tsx:156 📂 Processing section: legal_section
+ContentExtraction.tsx:158 🔄 Original section: "legal_section" -> Processed: "LEGAL"
+ContentExtraction.tsx:170 ✅ Created new section: "LEGAL"
+ContentExtraction.tsx:231 🆔 Found Claim ID in field "claim_administrator_claim_number": 312-36-368889
+ContentExtraction.tsx:235 ✅ Section "LEGAL" has 9 entities
+ContentExtraction.tsx:156 📂 Processing section: claim_details_section
+ContentExtraction.tsx:158 🔄 Original section: "claim_details_section" -> Processed: "CLAIM DETAILS"
+ContentExtraction.tsx:170 ✅ Created new section: "CLAIM DETAILS"
+ContentExtraction.tsx:231 🆔 Found Claim ID in field "claim_administrator_claim_number": 312-36-368889
+ContentExtraction.tsx:235 ✅ Section "CLAIM DETAILS" has 1 entities
+ContentExtraction.tsx:156 📂 Processing section: legal
+ContentExtraction.tsx:158 🔄 Original section: "legal" -> Processed: "LEGAL"
+ContentExtraction.tsx:172 📝 Adding to existing section: "LEGAL"
+ContentExtraction.tsx:235 ✅ Section "LEGAL" has 11 entities
+ContentExtraction.tsx:320 🎠 entitiesBySection changed: {LEGAL: Array(11), CLAIM DETAILS: Array(1)}
+ContentExtraction.tsx:321 🎠 Section count: 2
+ContentExtraction.tsx:322 🎠 Section names: (2) ['LEGAL', 'CLAIM DETAILS']
+ContentExtraction.tsx:362 📥 Lambda response received: {statusCode: 200, headers: {…}, body: 'Available'}
+ContentExtraction.tsx:365 ✅ Claim available in Guidewire
+ContentExtraction.tsx:1150 📄 Validation response: {statusCode: 200, body: '{"validation_result": "Currently Document level va…ment to view the document validation in action."}'}
+ContentExtraction.tsx:1155 ✅ Validation set successfully
+ContentExtraction.tsx:1150 📄 Validation response: {statusCode: 200, body: '{"validation_result": "Currently Document level va…ment to view the document validation in action."}'}
+ContentExtraction.tsx:1155 ✅ Validation set successfully
+ContentExtraction.tsx:362 📥 Lambda response received: {statusCode: 200, headers: {…}, body: 'Available'}
+ContentExtraction.tsx:365 ✅ Claim available in Guidewire
+
+
+
+
+{"docid":"DOC136118","modified_entities":{"claim_details_section":{"claim_administrator_claim_number":{"value":"312-36-368889"}}}}
+
+
+
+
+{
+    "statusCode": 200,
+    "body": "{\"message\": \"Successfully updated extracted_entities\", \"docid\": \"DOC136118\", \"updated_entities\": {\"legal_section\": {\"case_number\": {\"value\": \"533489\", \"confidence\": \"95%\"}, \"name\": {\"value\": \"DAVID BONET\", \"confidence\": \"95%\"}, \"category\": {\"value\": \"Legal\", \"confidence\": \"90%\"}, \"matter_type\": {\"value\": \"Hearing\", \"confidence\": \"80%\"}, \"court_type\": {\"value\": \"County\", \"confidence\": \"30%\"}, \"legal_speciality\": {\"value\": \"Worker Compensation\", \"confidence\": \"90%\"}, \"primary_cause\": {\"value\": \"Delay or insufficient claimant\", \"confidence\": \"70%\"}, \"sensitivity_type\": {\"value\": \"Non Sensitive Document\", \"confidence\": \"60%\"}, \"claim_administrator_claim_number\": {\"value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": \"G247 1014\"}}}}}}}}}}}}}}}}}}}}}}}}, \"confidence\": \"80%\"}}, \"claim_details_section\": {\"claim_administrator_claim_number\": {\"value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": {\"current_value\": \"312-36-368889\", \"previous_value\": \"312-36-368889\"}}}}}}}}, \"legal\": {\"category\": {\"value\": \"Legal-1\"}, \"name\": {\"value\": {\"current_value\": \"DAVID BONET-1\", \"previous_value\": {\"current_value\": \"DAVID BONET-1\", \"previous_value\": \"DAVID BONET-1\"}}}}}}"
+}

@@ -1,0 +1,3 @@
+# No external dependencies required
+# This Lambda function only uses AWS SDK (boto3) which is included in the Lambda runtime
+boto3>=1.26.0

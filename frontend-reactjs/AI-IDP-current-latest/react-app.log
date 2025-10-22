@@ -1,0 +1,289 @@
+
+> hcltech-ai-idp@1.0.0 start
+> BROWSER=none react-scripts start
+
+(node:11430) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node-18 --trace-deprecation ...` to show where the warning was created)
+(node:11430) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled with warnings.
+
+[eslint] 
+src/components/VoiceAssistantCloud9.tsx
+  Line 2:32:   'VolumeX' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 54:5:   Unexpected console statement                             no-console
+  Line 57:9:   'handleNovaResponse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 95:7:   Unexpected console statement                             no-console
+  Line 138:7:  Unexpected console statement                             no-console
+  Line 158:7:  Unexpected console statement                             no-console
+
+src/services/novaSonicSocketIO.ts
+  Line 28:11:  Unexpected console statement  no-console
+  Line 54:11:  Unexpected console statement  no-console
+  Line 59:11:  Unexpected console statement  no-console
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/VoiceAssistantCloud9.tsx
+  Line 2:32:   'VolumeX' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 54:5:   Unexpected console statement                             no-console
+  Line 57:9:   'handleNovaResponse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 95:7:   Unexpected console statement                             no-console
+  Line 138:7:  Unexpected console statement                             no-console
+  Line 158:7:  Unexpected console statement                             no-console
+
+src/services/novaSonicSocketIO.ts
+  Line 28:11:  Unexpected console statement  no-console
+  Line 54:11:  Unexpected console statement  no-console
+  Line 59:11:  Unexpected console statement  no-console
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 60:3:    Unexpected console statement                      no-console
+  Line 73:3:    Unexpected console statement                      no-console
+  Line 89:13:   'sessionsMap' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 92:19:   'token' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  Line 94:11:   Unexpected console statement                      no-console
+  Line 106:11:  Unexpected console statement                      no-console
+  Line 125:5:   Unexpected console statement                      no-console
+
+src/components/VoiceAssistantCloud9.tsx
+  Line 2:32:   'VolumeX' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 54:5:   Unexpected console statement                             no-console
+  Line 57:9:   'handleNovaResponse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 95:7:   Unexpected console statement                             no-console
+  Line 138:7:  Unexpected console statement                             no-console
+  Line 158:7:  Unexpected console statement                             no-console
+
+src/services/novaSonicSocketIO.ts
+  Line 28:11:  Unexpected console statement  no-console
+  Line 54:11:  Unexpected console statement  no-console
+  Line 59:11:  Unexpected console statement  no-console
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 60:3:    Unexpected console statement                      no-console
+  Line 73:3:    Unexpected console statement                      no-console
+  Line 89:13:   'sessionsMap' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 92:19:   'token' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  Line 94:11:   Unexpected console statement                      no-console
+  Line 106:11:  Unexpected console statement                      no-console
+  Line 125:5:   Unexpected console statement                      no-console
+
+src/components/VoiceAssistantCloud9.tsx
+  Line 2:32:   'VolumeX' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 54:5:   Unexpected console statement                             no-console
+  Line 57:9:   'handleNovaResponse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 95:7:   Unexpected console statement                             no-console
+  Line 138:7:  Unexpected console statement                             no-console
+  Line 158:7:  Unexpected console statement                             no-console
+
+src/services/novaSonicSocketIO.ts
+  Line 28:11:  Unexpected console statement  no-console
+  Line 54:11:  Unexpected console statement  no-console
+  Line 59:11:  Unexpected console statement  no-console
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 60:3:    Unexpected console statement                      no-console
+  Line 73:3:    Unexpected console statement                      no-console
+  Line 89:13:   'sessionsMap' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 92:19:   'token' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  Line 94:11:   Unexpected console statement                      no-console
+  Line 106:11:  Unexpected console statement                      no-console
+  Line 125:5:   Unexpected console statement                      no-console
+
+src/components/VoiceAssistantCloud9.tsx
+  Line 2:32:   'VolumeX' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 54:5:   Unexpected console statement                             no-console
+  Line 57:9:   'handleNovaResponse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 95:7:   Unexpected console statement                             no-console
+  Line 138:7:  Unexpected console statement                             no-console
+  Line 158:7:  Unexpected console statement                             no-console
+
+src/services/novaSonicSocketIO.ts
+  Line 28:11:  Unexpected console statement  no-console
+  Line 54:11:  Unexpected console statement  no-console
+  Line 59:11:  Unexpected console statement  no-console
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 60:3:    Unexpected console statement                      no-console
+  Line 73:3:    Unexpected console statement                      no-console
+  Line 89:13:   'sessionsMap' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 92:19:   'token' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  Line 94:11:   Unexpected console statement                      no-console
+  Line 106:11:  Unexpected console statement                      no-console
+  Line 125:5:   Unexpected console statement                      no-console
+
+src/components/VoiceAssistantCloud9.tsx
+  Line 2:32:   'VolumeX' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 54:5:   Unexpected console statement                             no-console
+  Line 57:9:   'handleNovaResponse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 95:7:   Unexpected console statement                             no-console
+  Line 138:7:  Unexpected console statement                             no-console
+  Line 158:7:  Unexpected console statement                             no-console
+
+src/services/novaSonicSocketIO.ts
+  Line 28:11:  Unexpected console statement  no-console
+  Line 54:11:  Unexpected console statement  no-console
+  Line 59:11:  Unexpected console statement  no-console
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/controllers/NovaSonicController.ts:1:33
+TS2307: Cannot find module '../services/novaSonicWebSocket' or its corresponding type declarations.
+  > 1 | import { novaSonicClient } from '../services/novaSonicWebSocket';
+      |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    2 | import { DocumentToolHandler } from '../services/documentTools';
+    3 |
+    4 | export interface ConversationContext {
+
+ERROR in src/controllers/NovaSonicController.ts:58:32
+TS7006: Parameter 'response' implicitly has an 'any' type.
+    56 |
+    57 |   private setupEventHandlers(): void {
+  > 58 |     novaSonicClient.onMessage((response) => {
+       |                                ^^^^^^^^
+    59 |       this.handleNovaSonicResponse(response);
+    60 |     });
+    61 |
+
+ERROR in src/controllers/NovaSonicController.ts:62:30
+TS7006: Parameter 'error' implicitly has an 'any' type.
+    60 |     });
+    61 |
+  > 62 |     novaSonicClient.onError((error) => {
+       |                              ^^^^^
+    63 |       console.error('Nova Sonic WebSocket error:', error);
+    64 |     });
+    65 |   }
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 60:3:    Unexpected console statement                      no-console
+  Line 73:3:    Unexpected console statement                      no-console
+  Line 89:13:   'sessionsMap' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 92:19:   'token' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  Line 94:11:   Unexpected console statement                      no-console
+  Line 106:11:  Unexpected console statement                      no-console
+  Line 125:5:   Unexpected console statement                      no-console
+
+src/components/VoiceAssistantCloud9.tsx
+  Line 2:32:   'VolumeX' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 54:5:   Unexpected console statement                             no-console
+  Line 57:9:   'handleNovaResponse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 95:7:   Unexpected console statement                             no-console
+  Line 138:7:  Unexpected console statement                             no-console
+  Line 158:7:  Unexpected console statement                             no-console
+
+src/services/novaSonicSocketIO.ts
+  Line 28:11:  Unexpected console statement  no-console
+  Line 54:11:  Unexpected console statement  no-console
+  Line 59:11:  Unexpected console statement  no-console
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 60:3:    Unexpected console statement                      no-console
+  Line 73:3:    Unexpected console statement                      no-console
+  Line 89:13:   'sessionsMap' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 92:19:   'token' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  Line 94:11:   Unexpected console statement                      no-console
+  Line 106:11:  Unexpected console statement                      no-console
+  Line 125:5:   Unexpected console statement                      no-console
+
+src/components/VoiceAssistantCloud9.tsx
+  Line 2:32:   'VolumeX' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 54:5:   Unexpected console statement                             no-console
+  Line 57:9:   'handleNovaResponse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 95:7:   Unexpected console statement                             no-console
+  Line 138:7:  Unexpected console statement                             no-console
+  Line 158:7:  Unexpected console statement                             no-console
+
+src/services/novaSonicSocketIO.ts
+  Line 28:11:  Unexpected console statement  no-console
+  Line 54:11:  Unexpected console statement  no-console
+  Line 59:11:  Unexpected console statement  no-console
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 60:3:    Unexpected console statement                      no-console
+  Line 73:3:    Unexpected console statement                      no-console
+  Line 89:13:   'sessionsMap' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 92:19:   'token' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  Line 94:11:   Unexpected console statement                      no-console
+  Line 106:11:  Unexpected console statement                      no-console
+  Line 125:5:   Unexpected console statement                      no-console
+
+src/components/VoiceAssistantCloud9.tsx
+  Line 2:32:   'VolumeX' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 54:5:   Unexpected console statement                             no-console
+  Line 57:9:   'handleNovaResponse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 95:7:   Unexpected console statement                             no-console
+  Line 138:7:  Unexpected console statement                             no-console
+  Line 158:7:  Unexpected console statement                             no-console
+
+src/services/novaSonicSocketIO.ts
+  Line 28:11:  Unexpected console statement  no-console
+  Line 54:11:  Unexpected console statement  no-console
+  Line 59:11:  Unexpected console statement  no-console
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 60:3:    Unexpected console statement                      no-console
+  Line 73:3:    Unexpected console statement                      no-console
+  Line 89:13:   'sessionsMap' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 92:19:   'token' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  Line 94:11:   Unexpected console statement                      no-console
+  Line 106:11:  Unexpected console statement                      no-console
+  Line 125:5:   Unexpected console statement                      no-console
+
+src/components/VoiceAssistantCloud9.tsx
+  Line 2:32:   'VolumeX' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 54:5:   Unexpected console statement                             no-console
+  Line 57:9:   'handleNovaResponse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 95:7:   Unexpected console statement                             no-console
+  Line 138:7:  Unexpected console statement                             no-console
+  Line 158:7:  Unexpected console statement                             no-console
+
+src/services/novaSonicSocketIO.ts
+  Line 28:11:  Unexpected console statement  no-console
+  Line 54:11:  Unexpected console statement  no-console
+  Line 59:11:  Unexpected console statement  no-console
+
+webpack compiled with 1 warning
+No issues found.

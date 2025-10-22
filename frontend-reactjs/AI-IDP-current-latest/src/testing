@@ -1,0 +1,40 @@
+ERROR in src/components/ContentExtraction.tsx:340:7
+TS2304: Cannot find name 'setClaimValidationStatus'.
+    338 |     
+    339 |     try {
+  > 340 |       setClaimValidationStatus('checking');
+        |       ^^^^^^^^^^^^^^^^^^^^^^^^
+    341 |       const response = await invokeLambda('nmm_check_claimnumber_in_guidewire_lambda', {
+    342 |         ClaimNumber: claimNumber
+    343 |       });
+
+ERROR in src/components/ContentExtraction.tsx:346:9
+TS2304: Cannot find name 'setClaimValidationStatus'.
+    344 |       
+    345 |       if (response?.body === 'Available') {
+  > 346 |         setClaimValidationStatus('available');
+        |         ^^^^^^^^^^^^^^^^^^^^^^^^
+    347 |         showMessage('success', 'Claim available in Guidewire');
+    348 |       } else {
+    349 |         setClaimValidationStatus('unavailable');
+
+ERROR in src/components/ContentExtraction.tsx:349:9
+TS2304: Cannot find name 'setClaimValidationStatus'.
+    347 |         showMessage('success', 'Claim available in Guidewire');
+    348 |       } else {
+  > 349 |         setClaimValidationStatus('unavailable');
+        |         ^^^^^^^^^^^^^^^^^^^^^^^^
+    350 |         showMessage('error', 'Claim not found in Guidewire');
+    351 |       }
+    352 |     } catch (error) {
+
+ERROR in src/components/ContentExtraction.tsx:353:7
+TS2304: Cannot find name 'setClaimValidationStatus'.
+    351 |       }
+    352 |     } catch (error) {
+  > 353 |       setClaimValidationStatus('unavailable');
+        |       ^^^^^^^^^^^^^^^^^^^^^^^^
+    354 |       showMessage('error', 'Error validating claim');
+    355 |     }
+    356 |   };
+

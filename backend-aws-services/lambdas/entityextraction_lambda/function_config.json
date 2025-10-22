@@ -1,0 +1,18 @@
+{
+  "FunctionName": "nmm_entityextraction_lambda",
+  "FunctionArn": "arn:aws:lambda:us-east-1:040504913362:function:nmm_entityextraction_lambda",
+  "Runtime": "python3.9",
+  "Role": "arn:aws:iam::040504913362:role/HCL-User-Role-Aiml-lambda",
+  "Handler": "entity_lambda_function.lambda_handler",
+  "CodeSize": 6129,
+  "Description": "Entity extraction for New Mexico Mutual worker compensation documents",
+  "Timeout": 300,
+  "MemorySize": 8192,
+  "LastModified": "2025-09-30T09:57:52.000+0000",
+  "Version": "$LATEST",
+  "PackageType": "Zip",
+  "Architectures": ["x86_64"],
+  "EphemeralStorage": {
+    "Size": 8192
+  }
+}

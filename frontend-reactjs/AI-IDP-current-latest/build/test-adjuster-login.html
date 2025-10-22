@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adjuster Login Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .error { color: red; }
+        .success { color: green; }
+        .info { color: blue; }
+        button { padding: 10px 15px; margin: 5px; }
+        input { padding: 8px; margin: 5px; width: 200px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Adjuster Login Debug Tool</h1>
+    
+    <div class="test-section">
+        <h2>Configuration Check</h2>
+        <div id="config-info"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Adjuster Login</h2>
+        <div>
+            <input type="email" id="email" placeholder="Enter adjuster email" value="adjuster@test.com">
+            <input type="password" id="password" placeholder="Enter password" value="TestPass123!">
+            <button onclick="testLogin()">Test Login</button>
+        </div>
+        <div id="login-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Create Test Adjuster</h2>
+        <div>
+            <input type="email" id="signup-email" placeholder="New adjuster email" value="test.adjuster@example.com">
+            <input type="password" id="signup-password" placeholder="New password" value="AdjusterPass123!">
+            <input type="text" id="signup-name" placeholder="Full name" value="Test Adjuster">
+            <button onclick="testSignup()">Create Adjuster Account</button>
+        </div>
+        <div id="signup-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Console Logs</h2>
+        <div id="console-logs" style="background: #f5f5f5; padding: 10px; height: 200px; overflow-y: scroll;"></div>
+    </div>
+
+    <script>
+        // Override console.log to capture logs
+        const originalLog = console.log;
+        const originalError = console.error;
+        const logDiv = document.getElementById('console-logs');
+        
+        function addLog(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.className = type;
+            logEntry.textContent = `[${timestamp}] ${message}`;
+            logDiv.appendChild(logEntry);
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addLog(args.join(' '), 'info');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addLog(args.join(' '), 'error');
+        };
+        
+        // Check configuration
+        function checkConfig() {
+            const configDiv = document.getElementById('config-info');
+            
+            // Check if we're running in the React app context
+            if (window.location.port === '3000') {
+                configDiv.innerHTML = `
+                    <div class="info">✅ Running on React dev server (port 3000)</div>
+                    <div class="info">📍 Current URL: ${window.location.href}</div>
+                    <div class="info">🔧 Environment: Development</div>
+                `;
+            } else {
+                configDiv.innerHTML = `
+                    <div class="error">⚠️ Not running on React dev server</div>
+                    <div class="info">📍 Current URL: ${window.location.href}</div>
+                    <div class="info">💡 Open this at: http://localhost:3000/test-adjuster-login.html</div>
+                `;
+            }
+        }
+        
+        async function testLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const resultDiv = document.getElementById('login-result');
+            
+            resultDiv.innerHTML = '<div class="info">🔄 Testing login...</div>';
+            
+            try {
+                // This would need to be integrated with the actual auth service
+                // For now, just simulate the test
+                console.log('Testing login for:', email);
+                
+                // Check common issues
+                const issues = [];
+                
+                if (!email.includes('@')) {
+                    issues.push('Invalid email format');
+                }
+                
+                if (password.length < 8) {
+                    issues.push('Password too short');
+                }
+                
+                if (!email.toLowerCase().includes('adjuster')) {
+                    issues.push('Email does not contain "adjuster" - role detection may fail');
+                }
+                
+                if (issues.length > 0) {
+                    resultDiv.innerHTML = `
+                        <div class="error">❌ Potential Issues Found:</div>
+                        ${issues.map(issue => `<div class="error">• ${issue}</div>`).join('')}
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="success">✅ Input validation passed</div>
+                        <div class="info">💡 To test actual login, use the main application</div>
+                        <div class="info">🔗 <a href="/" target="_blank">Open Main Application</a></div>
+                    `;
+                }
+                
+            } catch (error) {
+                console.error('Login test error:', error);
+                resultDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+        
+        async function testSignup() {
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const name = document.getElementById('signup-name').value;
+            const resultDiv = document.getElementById('signup-result');
+            
+            resultDiv.innerHTML = '<div class="info">🔄 Testing signup...</div>';
+            
+            try {
+                console.log('Testing signup for adjuster:', { email, name });
+                
+                // Validate signup data
+                const issues = [];
+                
+                if (!email.includes('@')) {
+                    issues.push('Invalid email format');
+                }
+                
+                if (password.length < 8) {
+                    issues.push('Password must be at least 8 characters');
+                }
+                
+                if (!name.trim()) {
+                    issues.push('Name is required');
+                }
+                
+                // Check password complexity
+                const hasUpper = /[A-Z]/.test(password);
+                const hasLower = /[a-z]/.test(password);
+                const hasNumber = /\d/.test(password);
+                const hasSpecial = /[!@#$%^&*]/.test(password);
+                
+                if (!hasUpper || !hasLower || !hasNumber || !hasSpecial) {
+                    issues.push('Password must contain uppercase, lowercase, number, and special character');
+                }
+                
+                if (issues.length > 0) {
+                    resultDiv.innerHTML = `
+                        <div class="error">❌ Validation Issues:</div>
+                        ${issues.map(issue => `<div class="error">• ${issue}</div>`).join('')}
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="success">✅ Signup validation passed</div>
+                        <div class="info">💡 To create actual account, use the main application signup</div>
+                        <div class="info">🔗 <a href="/" target="_blank">Open Main Application</a></div>
+                    `;
+                }
+                
+            } catch (error) {
+                console.error('Signup test error:', error);
+                resultDiv.innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+            }
+        }
+        
+        // Initialize
+        checkConfig();
+        addLog('Adjuster login debug tool loaded');
+    </script>
+</body>
+</html>

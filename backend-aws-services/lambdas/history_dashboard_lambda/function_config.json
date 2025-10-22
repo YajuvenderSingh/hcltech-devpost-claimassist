@@ -1,0 +1,18 @@
+{
+  "FunctionName": "nmm_history_dashboard_lambda",
+  "FunctionArn": "arn:aws:lambda:us-east-1:040504913362:function:nmm_history_dashboard_lambda",
+  "Runtime": "python3.9",
+  "Role": "arn:aws:iam::040504913362:role/HCL-User-Role-Aiml-lambda",
+  "Handler": "lambda_function.lambda_handler",
+  "CodeSize": 826,
+  "Description": "",
+  "Timeout": 60,
+  "MemorySize": 256,
+  "LastModified": "2025-09-23T06:27:10.000+0000",
+  "Version": "$LATEST",
+  "PackageType": "Zip",
+  "Architectures": ["x86_64"],
+  "EphemeralStorage": {
+    "Size": 512
+  }
+}

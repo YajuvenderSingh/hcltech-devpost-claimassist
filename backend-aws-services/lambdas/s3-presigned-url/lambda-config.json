@@ -1,0 +1,24 @@
+{
+    "FunctionName": "claimassistv2-presignedurl-lambda",
+    "Runtime": "python3.13",
+    "Role": "arn:aws:iam::{{ACCOUNT_ID}}:role/HCL-User-Role-Aiml-lambda",
+    "Handler": "presigned-url-lambda.lambda_handler",
+    "Description": "Lambda function created via SageMaker notebook.",
+    "Timeout": 600,
+    "MemorySize": 2046,
+    "Environment": {
+        "Variables": {
+            "BUCKET_NAME": "{{S3_BUCKET_NAME}}"
+        }
+    },
+    "TracingConfig": {
+        "Mode": "PassThrough"
+    },
+    "PackageType": "Zip",
+    "Architectures": [
+        "x86_64"
+    ],
+    "EphemeralStorage": {
+        "Size": 512
+    }
+}

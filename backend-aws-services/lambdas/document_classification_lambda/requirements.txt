@@ -1,0 +1,14 @@
+# AWS SDK for Python
+boto3>=1.26.0
+
+# JSON handling (built-in, but listed for clarity)
+# json
+
+# Date/time handling (built-in, but listed for clarity)  
+# datetime
+
+# Error handling
+# traceback (built-in)
+
+# No additional external dependencies required
+# This Lambda uses only AWS services (Bedrock, DynamoDB, Translate, Comprehend, Lambda)
