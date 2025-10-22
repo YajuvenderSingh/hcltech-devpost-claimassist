@@ -1,5 +1,0 @@
-# AWS SDK for Python
-boto3>=1.26.0
-
-# No additional external dependencies required
-# This Lambda uses only AWS services (DynamoDB, SQS, SES)
